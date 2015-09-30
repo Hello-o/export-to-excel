@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8"/>
+<title>js导出excel</title>
+</head>
+<body>
+<div id="exportable">
+  <table border="1" cellpadding="0" cellspacing="0">
+    <thead>
+      <tr>
+        <td class="ng-isolate-scope" order-num="0" order-name="Student Name" order-id="emergency" order-data="sequence_arr" order-by="keyword_e" ng-sequence=""><span class="ng-binding" style="cursor:pointer" ng-click="sequence(id)"> Student Name <span class="icon fa fa-arrow-circle-o-up ng-scope" ng-if="!desc&&data[id][key[index]];"></span> </span></td>
+        <td>Emergency Contact</td>
+        <td>Relationship</td>
+        <td>Emergency Email</td>
+        <td>Emergency Phone</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="ng-scope" ng-repeat="student in students | orderBy:keyword_e">
+        <td class="ng-binding">Student Chrome284</td>
+        <td class="ng-binding">Dad Chrome</td>
+        <td class="ng-binding"></td>
+        <td class="ng-binding">dadboks_284@gmail.com</td>
+        <td class="ng-binding">3103055002</td>
+      </tr>
+      <tr class="ng-scope" ng-repeat="student in students | orderBy:keyword_e">
+        <td class="ng-binding">Student Chrome284</td>
+        <td class="ng-binding">Dad Chrome</td>
+        <td class="ng-binding"></td>
+        <td class="ng-binding">dadboks_284@gmail.com</td>
+        <td class="ng-binding">3103055002</td>
+      </tr>
+      <tr class="ng-scope" ng-repeat="student in students | orderBy:keyword_e">
+        <td class="ng-binding">Student Chrome499</td>
+        <td class="ng-binding">Dad Chrome</td>
+        <td class="ng-binding"></td>
+        <td class="ng-binding">dadboks_499@gmail.com</td>
+        <td class="ng-binding">3103055002</td>
+      </tr>
+      <tr class="ng-scope" ng-repeat="student in students | orderBy:keyword_e">
+        <td class="ng-binding">Student Chrome499</td>
+        <td class="ng-binding">Dad Chrome</td>
+        <td class="ng-binding"></td>
+        <td class="ng-binding">dadboks_499@gmail.com</td>
+        <td class="ng-binding">3103055002</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p> <strong>文件名</strong>:&nbsp;
+  <input type="text" name="filename" id="filename" value="hello.xls" />
+</p>
+<p id="exportexcel"></p>
+
+<!--downloadify--> 
+<script src="swfobject.js"></script> 
+<script src="downloadify.min.js"></script> 
+<script>
+    (function(){
+        Downloadify.create('exportexcel',{
+            filename: function(){
+                return document.getElementById('filename').value;
+            },
+            data: function(){
+                return "\ufeff" + document.getElementById('exportable').innerHTML;
+            },
+            transparent: false,
+            swf: 'downloadify.swf',
+            downloadImage: 'download.png',
+            width: 100,
+            height: 30,
+            transparent: true,
+            append: false
+        });
+    })();
+</script>
+</body>
+</html>
